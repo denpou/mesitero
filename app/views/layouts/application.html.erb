@@ -41,12 +41,13 @@
         <% end %>
        <% else %>
        <!--会員登録-->
-        <li>
-         <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-         <%= link_to "ログイン", new_user_session_path %>
-        </li>
+        <%= link_to new_user_registration_path do %>
+        <%= image_tag "new_user.png", :size => '100x100' %>
+        <% end %>
+       <!--ログイン-->
+        <%= link_to new_user_session_path do %>
+        <%= image_tag "log_in.png", :size => '100x100' %>
+        <% end %
        <% end %>
       </div>
     </div>
