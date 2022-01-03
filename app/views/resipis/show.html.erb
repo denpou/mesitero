@@ -1,28 +1,24 @@
 <div class="container">
  <div class="row">
-  <div class="col-lg-6"><br><br>
-    <%= attachment_image_tag @resipi,:image, format: 'jpeg', fallback: "no_image.jpg", size: "920x540"  %>
-  </div>
+   <div class="mx-auto"><br>
+    <%= attachment_image_tag @resipi,:image, format: 'jpg', fallback: "no_image.jpg", size: "720x540"  %>
+   </div>
  </div>
 </div>
 
 <div class="container">
  <div class="row">
   <div class="col-lg-6"><br><br>
-    料理名：<%= @resipi.name %> 
+    料理名：<%= @resipi.name %>
     <!--いいね機能-->
     <% if @resipi.favorited_by?(current_user) %>
-      <p>
-        <%= link_to resipi_favorites_path(@resipi), method: :delete do %>
-          ♥<%= @resipi.favorites.count %> いいね
-        <% end %>
-      </p>
-      <% else %>
-      <p>
-        <%= link_to resipi_favorites_path(@resipi), method: :post do %>
-          ♡<%= @resipi.favorites.count %> いいね
-        <% end %>
-      </p>
+     <%= link_to resipi_favorites_path(@resipi), method: :delete do %>
+       ♥<%= @resipi.favorites.count %> いいね
+     <% end %>
+    <% else %>
+     <%= link_to resipi_favorites_path(@resipi), method: :post do %>
+       ♡<%= @resipi.favorites.count %> いいね
+     <% end %>
     <% end %>
     <!--ここまで-->
     <p>投稿者：<%= @resipi.user.name %></p>
@@ -41,9 +37,10 @@
   <div class="col-lg-6"><br>
    <p>コメント件数：<%= @resipi.comments.count %></p>
    <% @resipi.comments.each do |comment| %>
-    <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-     <%= comment.user.name %>
-     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
+     <%= comment.created_at.strftime('%Y/%m/%d') %><br>
+     <%= comment.user.name %><br>
+     <%= comment.comment %>
      <% if comment.user == current_user %>
      <div>
        <%= link_to "削除", resipi_comment_path(comment.resipi, comment), method: :delete %>

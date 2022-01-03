@@ -21,32 +21,35 @@
       <!--検索機能-->
       <div class="text-center">
         <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword, value: @keyword %>
-        <%= f.submit "検索" %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit "検索" %>
         <% end %>
       </div>
-      <div class="pull-right">
+      <div>
        <% if user_signed_in? %>
+        <%= link_to resipis_path do %>
+        　<%= image_tag "resipi.ico" %>
+        <% end %>
        <!--レシピ投稿-->
         <%= link_to new_resipi_path do %>
-        　<%= image_tag "new_resipi.png", :size => '100x100' %>
+        　<%= image_tag "new_resipi.ico" %>
         <% end %>
        <!--マイページ-->
         <%= link_to user_path(current_user.id) do %>
-        　 <%= image_tag "mypage.png", :size => '100x100' %>
+        　 <%= image_tag "mypage.ico" %>
         <% end %>
        <!--ログアウト-->
         <%= link_to destroy_user_session_path, method: :delete do %>
-        　<%= image_tag "log_out.png", :size => '100x100' %>
+        　<%= image_tag "log_out.ico" %>
         <% end %>
        <% else %>
        <!--会員登録-->
         <%= link_to new_user_registration_path do %>
-        　<%= image_tag "new_user.png", :size => '100x100' %>
+        　<%= image_tag "new_user.ico" %>
         <% end %>
        <!--ログイン-->
         <%= link_to new_user_session_path do %>
-       　　 <%= image_tag "log_in.png", :size => '100x100' %>
+       　　<%= image_tag "log_in.ico" %>
         <% end %>
        <% end %>
       </div>
