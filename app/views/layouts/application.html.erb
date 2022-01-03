@@ -29,25 +29,25 @@
        <% if user_signed_in? %>
        <!--レシピ投稿-->
         <%= link_to new_resipi_path do %>
-        <%= image_tag "new_resipi.png", :size => '100x100' %>
+        　<%= image_tag "new_resipi.png", :size => '100x100' %>
         <% end %>
        <!--マイページ-->
-         <%= link_to user_path(current_user.id) do %>
-         <%= image_tag "mypage.png", :size => '100x100' %>
-         <% end %>
+        <%= link_to user_path(current_user.id) do %>
+        　 <%= image_tag "mypage.png", :size => '100x100' %>
+        <% end %>
        <!--ログアウト-->
         <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= image_tag "log_out.png", :size => '100x100' %>
+        　<%= image_tag "log_out.png", :size => '100x100' %>
         <% end %>
        <% else %>
        <!--会員登録-->
         <%= link_to new_user_registration_path do %>
-        <%= image_tag "new_user.png", :size => '100x100' %>
+        　<%= image_tag "new_user.png", :size => '100x100' %>
         <% end %>
        <!--ログイン-->
         <%= link_to new_user_session_path do %>
-        <%= image_tag "log_in.png", :size => '100x100' %>
-        <% end %
+       　　 <%= image_tag "log_in.png", :size => '100x100' %>
+        <% end %>
        <% end %>
       </div>
     </div>
